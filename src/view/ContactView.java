@@ -53,7 +53,7 @@ public class ContactView {
             System.out.println("Enter contact Infomation");
             createContact();
             System.out.println("add contact success!!");
-            System.out.println("Press any key to CONTINUE or ENTER QUIT BACK to menu-");
+            System.out.println("Press any key to CONTINUE or ENTER to BACK to menu-");
             String back = sc.nextLine();
             if (back.equalsIgnoreCase("quit")) {
                 return;
@@ -66,14 +66,14 @@ public class ContactView {
         int index = contactController.findContactByNumber(phoneNum);
         if (index > -1) {
             contactController.editContact(index, createContact());
-            System.out.println(" Edit success - Plz Enter any key to continue or Enter quit to get back to menu");
+            System.out.println(" Edit success - Plz Enter any key to continue or Enter  to get back to menu");
             String back = sc.next();
             if (back.equalsIgnoreCase("quit")) {
                 return;
             }
 
         } else {
-            System.err.println("Phone number not found - Plz try again or Enter quit to get back to menu");
+            System.err.println("Phone number not found - Plz try again or Enter  to get back to menu");
             String back = sc.next();
             if (back.equalsIgnoreCase("quit")) {
                 return;
@@ -85,11 +85,11 @@ public class ContactView {
         String phoneNum = Regex.validate("Enter Phone number to edit", "Wrong type, Enter 8 number from 0-9", Regex.NUMBER);
         int index = contactController.findContactByNumber(phoneNum);
         if (index > -1) {
-            System.out.println("Would you like to discharge the bill?- Enter Yes ");
+            System.out.println("Would you like to delete?- Enter Yes ");
             String answer = sc.nextLine();
             if (answer.equalsIgnoreCase("yes")) {
                 contactController.deleteContact(index);
-                System.out.println(" Edit success - Plz Enter any key to continue or Enter quit to get back to menu");
+                System.out.println(" Edit success - Plz Enter any key to continue or Enter to get back to menu");
                 sc.nextLine();
                 return;
             } else {
@@ -98,6 +98,9 @@ public class ContactView {
                 return;
             }
         }
+
+    }
+    public void findContact(){
 
     }
 }
