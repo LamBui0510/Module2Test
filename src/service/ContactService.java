@@ -20,7 +20,7 @@ public class ContactService implements IContact<Contact> {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = null;
             while ((line = bufferedReader.readLine()) != null){
-                String contactsLine[] = line.split(",");
+                String[] contactsLine = line.split(",");
                 String phoneNum = contactsLine[0];
                 String group = contactsLine[1];
                 String name = contactsLine[2];
@@ -78,12 +78,5 @@ public class ContactService implements IContact<Contact> {
         return -1;
     }
 
-    public void showContacts() {
-        for (int i = 0; i < contactList.size(); i++) {
-            if (i % 5 == 0 && i != 0) {
-                sc.nextLine();
-            }
-            System.out.println(contactList.get(i));
-        }
-    }
+
 }

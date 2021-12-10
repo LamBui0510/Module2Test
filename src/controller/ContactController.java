@@ -22,7 +22,5 @@ public class ContactController {
     public int findContactByNumber(String phoneNumber){
        return contactService.findIndexbyPhoneNum(phoneNumber);
     }
-    public void showContacts(){
-        contactService.showContacts();
-    }
+
 }
