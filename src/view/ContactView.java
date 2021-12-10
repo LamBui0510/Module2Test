@@ -13,30 +13,45 @@ public class ContactView {
     ContactController contactController = new ContactController();
     ContactService contactService = new ContactService();
     Scanner sc = new Scanner(System.in);
+
     public void showContactMenu() {
+        System.out.println("ContactMenu");
+        System.out.println("1. Show contact");
+        System.out.println("2. Add contact");
+        System.out.println("3. Edit contact");
+        System.out.println("4. Delete contact");
+        System.out.println("5. Read contact");
+        System.out.println("6. Write contact");
+        System.out.println("7. Exit");
         while (true) {
             int choice = Integer.parseInt(Regex.NUMBER);
             switch (choice) {
                 case 1:
-                contactController.showContacts();
-                break;
-                case 2: addContact();
-                break;
-                case 3: editContact();
-                break;
-                case 4: deleteContact();
-                break;
-                case 5: contactService.readFile();
-                break;
-                case 6: contactService.writeToFile();
-                case 7: return;
+                    contactController.showContacts();
+                    break;
+                case 2:
+                    addContact();
+                    break;
+                case 3:
+                    editContact();
+                    break;
+                case 4:
+                    deleteContact();
+                    break;
+                case 5:
+                    contactService.readFile();
+                    break;
+                case 6:
+                    contactService.writeToFile();
+                case 7:
+                    return;
             }
         }
     }
 
     public Contact createContact() {
         while (true) {
-            String phoneNum =Regex.validate("Enter Phone number", "Wrong type, Enter 8 number from 0-9", Regex.NUMBER);
+            String phoneNum = Regex.validate("Enter Phone number", "Wrong type, Enter 8 number from 0-9", Regex.NUMBER);
             String group = Regex.validateNotNull("Enter group", "not null");
             String name = Regex.validateNotNull("Enter name", "not null");
             String gender = Regex.validateNotNull("Enter gender", "Not null");
@@ -98,9 +113,5 @@ public class ContactView {
                 return;
             }
         }
-
-    }
-    public void findContact(){
-
     }
 }
